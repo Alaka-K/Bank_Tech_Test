@@ -13,4 +13,10 @@ describe Account_Statement do
     statement = Account_Statement.new(account)
     expect(statement.credit).to eq(5)
   end
+
+  it 'shows how much you have withdrawn' do
+    account = double :account, debit: 5
+    statement = Account_Statement.new(account)
+    expect(statement.debit).to eq(5)
+  end
 end

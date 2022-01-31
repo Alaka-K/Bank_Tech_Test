@@ -8,4 +8,8 @@ class Account_Statement
   def credit
     @account.credit
   end
+
+  def debit
+    @account.debit
+  end
 end
