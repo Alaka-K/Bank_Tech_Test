@@ -10,7 +10,12 @@ class Account
   end
 
   def withdraw(cash)
-    raise 'You have insuffient funds' if @balance < cash
+    raise 'You have insuffient funds' if insufficient_funds?(cash)
     @balance -= cash
+  end
+
+  private
+  def insufficient_funds?(cash)
+    @balance < cash
   end
 end
