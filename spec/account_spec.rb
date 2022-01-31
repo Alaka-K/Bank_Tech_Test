@@ -10,4 +10,9 @@ describe Account do
   it 'responds to deposit with an argument' do
     expect(account).to respond_to(:deposit).with(1).argument
   end
+
+  it 'adds the deposit to the balance' do
+    account.deposit(10)
+    expect(account.balance).to eq(10)
+  end
 end

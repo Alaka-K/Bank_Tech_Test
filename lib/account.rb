@@ -6,5 +6,6 @@ class Account
   end
 
   def deposit(cash)
+    @balance += cash
   end
 end
