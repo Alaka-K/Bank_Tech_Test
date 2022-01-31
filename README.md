@@ -44,12 +44,12 @@ date || credit || debit || balance
 >So that clients can only withdraw money that they have deposited   
 >I would like withdrawals to only happen if the client has sufficient funds   
 
--[ ]
+-[x]
 > As a client
 > So that I can have a place to store my money 
 > I would like to create an account
 
--[ ]
+-[x]
 > As a client
 > So that I can save my money in my account
 > I would like to to be able to deposit money into that account
