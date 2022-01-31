@@ -59,4 +59,19 @@ date || credit || debit || balance
 > So that I can spent my money 
 > I would like to to be able to withdraw money
 
+
+-[]
+> As a client
+> So that I can see a record of my transactions  
+> I would like to to be to print and account statment
 ```
+
+| Class           |
+| Account         |
+|-----------------|
+| Attributes      |
+| @balance = 0    |
+|-----------------|
+| Methods         |
+| deposit         | 
+| account_statment|
