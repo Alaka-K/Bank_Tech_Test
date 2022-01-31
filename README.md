@@ -66,10 +66,8 @@ date || credit || debit || balance
 > I would like to to be to print and account statment
 ```
 
-| CLASS           |
-| Account         |
-| ATTRIBUTES      |
-| @balance = 0    |
-| METHODS         |
-| deposit         | 
-| account_statment|
+| Class       | Attributes   |Methods        |
+| ----------- | ----------- |----------------|
+| Account     | @balance = 0|      deposit   |
+|             |             |     withdrawal |
+|             |             |account_statment|
