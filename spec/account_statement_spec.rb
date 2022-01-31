@@ -2,8 +2,9 @@ require 'account_statement'
 
 describe Account_Statement do
   
-  it 'initializes with an account' do
-    statement = Account_Statement.new
+  it 'initialize with an account' do
+    account = double(:account)
+    statement = Account_Statement.new(account)
     expect(statement.account).not_to be_nil
   end
 end

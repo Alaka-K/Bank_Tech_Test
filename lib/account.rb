@@ -1,5 +1,5 @@
 class Account
-  attr_reader :balance
+  attr_reader :balance, :credit, :debit
 
   def initialize
     @balance = 0
