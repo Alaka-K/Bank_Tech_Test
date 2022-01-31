@@ -22,6 +22,12 @@ describe Account do
     it 'takes an argument' do
       expect(account).to respond_to(:withdraw).with(1).argument
     end
+
+    it 'changes balance' do
+      account.deposit(30)
+      account.withdraw(9)
+      expect(account.balance).to eq(21)
+    end
   end
 
 end
