@@ -39,7 +39,7 @@ date || credit || debit || balance
 > So that a client can deposit and withdraw thier own money   
 > I would like each account to start with a balance of 0   
 
--[ ]
+-[x]
 > As a Bank   
 >So that clients can only withdraw money that they have deposited   
 >I would like withdrawals to only happen if the client has sufficient funds   
@@ -54,7 +54,7 @@ date || credit || debit || balance
 > So that I can save my money in my account
 > I would like to to be able to deposit money into that account
 
--[ ]
+-[x]
 > As a client
 > So that I can spent my money 
 > I would like to to be able to withdraw money

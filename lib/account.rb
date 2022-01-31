@@ -10,6 +10,7 @@ class Account
   end
 
   def withdraw(cash)
+    raise 'You have insuffient funds' if @balance < cash
     @balance -= cash
   end
 end

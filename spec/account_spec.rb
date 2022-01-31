@@ -8,9 +8,7 @@ describe Account do
   end
 
   describe '.deposit' do
-    it 'takes an argument' do
-      expect(account).to respond_to(:deposit).with(1).argument
-    end
+    it { is_expected.to respond_to(:deposit).with(1).argument }
 
     it 'changes balance' do
       account.deposit(10)
@@ -19,14 +17,16 @@ describe Account do
   end
 
   describe '.withdraw' do
-    it 'takes an argument' do
-      expect(account).to respond_to(:withdraw).with(1).argument
-    end
+    it { is_expected.to respond_to(:withdraw).with(1).argument }
 
     it 'changes balance' do
       account.deposit(30)
       account.withdraw(9)
       expect(account.balance).to eq(21)
+    end
+
+    it 'raises error if insufficent funds' do
+      expect { account.withdraw(2) }.to raise_error 'You have insuffient funds'
     end
   end
 
