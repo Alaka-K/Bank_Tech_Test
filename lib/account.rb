@@ -7,11 +7,13 @@ class Account
 
   def deposit(cash)
     @balance += cash
+    @credit = cash
   end
 
   def withdraw(cash)
     raise 'You have insuffient funds' if insufficient_funds?(cash)
     @balance -= cash
+    @debit = cash
   end
 
   private

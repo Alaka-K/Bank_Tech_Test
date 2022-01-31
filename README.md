@@ -63,7 +63,7 @@ date || credit || debit || balance
 -[ ]
 > As a client
 > So that I can see a record of my transactions  
-> I would like to to be to print and account statment
+> I would like to print my account statment
 ```
 
 | Class       | Attributes   |Methods        |
