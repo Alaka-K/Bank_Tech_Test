@@ -67,11 +67,12 @@ date || credit || debit || balance
 ```
 
 | Class           |
+|-----------------|
 | Account         |
-|-----------------|
 | Attributes      |
-| @balance = 0    |
 |-----------------|
+| @balance = 0    |
 | Methods         |
+|-----------------|
 | deposit         | 
 | account_statment|
