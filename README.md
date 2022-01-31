@@ -34,33 +34,33 @@ date || credit || debit || balance
 ### User stories
 
 ```
--[]
+-[x]
 > As a Bank
 > So that a client can deposit and withdraw thier own money   
 > I would like each account to start with a balance of 0   
 
--[]
+-[ ]
 > As a Bank   
 >So that clients can only withdraw money that they have deposited   
 >I would like withdrawals to only happen if the client has sufficient funds   
 
--[]
+-[ ]
 > As a client
 > So that I can have a place to store my money 
 > I would like to create an account
 
--[]
+-[ ]
 > As a client
 > So that I can save my money in my account
 > I would like to to be able to deposit money into that account
 
--[]
+-[ ]
 > As a client
 > So that I can spent my money 
 > I would like to to be able to withdraw money
 
 
--[]
+-[ ]
 > As a client
 > So that I can see a record of my transactions  
 > I would like to to be to print and account statment
