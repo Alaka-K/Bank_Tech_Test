@@ -7,12 +7,21 @@ describe Account do
     expect(account.balance).to eq(0)
   end
 
-  it 'responds to deposit with an argument' do
-    expect(account).to respond_to(:deposit).with(1).argument
+  describe '.deposit' do
+    it 'takes an argument' do
+      expect(account).to respond_to(:deposit).with(1).argument
+    end
+
+    it 'changes balance' do
+      account.deposit(10)
+      expect(account.balance).to eq(10)
+    end
   end
 
-  it 'adds the deposit to the balance' do
-    account.deposit(10)
-    expect(account.balance).to eq(10)
+  describe '.withdraw' do
+    it 'takes an argument' do
+      expect(account).to respond_to(:withdraw).with(1).argument
+    end
   end
+
 end
