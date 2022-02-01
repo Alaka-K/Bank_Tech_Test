@@ -20,7 +20,18 @@ describe Account do
     end
 
     it 'raises error if depositing negative amount' do
-      expect { account.deposit(-2) }.to raise_error 'Cannot deposit negative amount'
+      expect { account.deposit(-2) }.to raise_error 'Cannot deposit negitave amount'
+    end
+
+    it 'updates transactions' do
+      date = Time.now.strftime("%d/%m/%Y")
+      account.deposit(10, date)
+      expect(account.transactions).to eq(["#{date} || #{account.credit} || || #{account.balance}"])
+    end
+
+    it 'updates transactions despite not manually inputting time' do
+      account.deposit(10)
+      expect(account.transactions).to eq(["#{Time.now.strftime("%d/%m/%Y")} || #{account.credit} || || #{account.balance}"])
     end
   end
 
@@ -36,6 +47,20 @@ describe Account do
     it 'raises error if insufficent funds' do
       expect { account.withdraw(2) }.to raise_error 'You have insuffient funds'
     end
-  end
 
+    it 'updates transactions' do
+      date = Time.now.strftime("%d/%m/%Y")
+      account.deposit(20, date)
+      expect(account.transactions).to include("#{date} || #{account.credit} || || #{account.balance}")
+      account.withdraw(10, date)
+      expect(account.transactions).to include("#{date} || || #{account.debit} || #{account.balance}")
+    end
+
+    it 'updates transactions despite not manually inputting time' do
+      account.deposit(20)
+      expect(account.transactions).to eq(["#{Time.now.strftime("%d/%m/%Y")} || #{account.credit} || || #{account.balance}"])
+      account.withdraw(10)
+      expect(account.transactions).to include("#{Time.now.strftime("%d/%m/%Y")} || || #{account.debit} || #{account.balance}")
+    end
+  end
 end
