@@ -18,6 +18,10 @@ describe Account do
       account.deposit(10)
       expect(account.balance).to eq(10)
     end
+
+    it 'raises error if depositing negative amount' do
+      expect { account.deposit(-2) }.to raise_error 'Cannot deposit negative amount'
+    end
   end
 
   describe '.withdraw' do
