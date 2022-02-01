@@ -24,14 +24,14 @@ describe Account do
     end
 
     it 'updates transactions' do
-      date = Time.now.strftime("%d/%m/%Y")
+      date = Time.now.strftime('%d/%m/%Y')
       account.deposit(10, date)
-      expect(account.transactions).to eq(["#{date} || #{account.credit} || || #{account.balance}"])
+      expect(account.transactions).to eq(["#{date} || 10 || || 10"])
     end
 
     it 'updates transactions despite not manually inputting time' do
       account.deposit(10)
-      expect(account.transactions).to eq(["#{Time.now.strftime("%d/%m/%Y")} || #{account.credit} || || #{account.balance}"])
+      expect(account.transactions).to eq(["#{Time.now.strftime("%d/%m/%Y")} || 10 || || 10"])
     end
   end
 
@@ -49,18 +49,18 @@ describe Account do
     end
 
     it 'updates transactions' do
-      date = Time.now.strftime("%d/%m/%Y")
+      date = Time.now.strftime('%d/%m/%Y')
       account.deposit(20, date)
-      expect(account.transactions).to include("#{date} || #{account.credit} || || #{account.balance}")
+      expect(account.transactions).to include("#{date} || 20 || || 20")
       account.withdraw(10, date)
-      expect(account.transactions).to include("#{date} || || #{account.debit} || #{account.balance}")
+      expect(account.transactions).to include("#{date} || || 10 || 10")
     end
 
     it 'updates transactions despite not manually inputting time' do
       account.deposit(20)
-      expect(account.transactions).to eq(["#{Time.now.strftime("%d/%m/%Y")} || #{account.credit} || || #{account.balance}"])
-      account.withdraw(10)
-      expect(account.transactions).to include("#{Time.now.strftime("%d/%m/%Y")} || || #{account.debit} || #{account.balance}")
+      expect(account.transactions).to eq(["#{Time.now.strftime("%d/%m/%Y")} || 20 || || 20"])
+      account.withdraw(5)
+      expect(account.transactions).to include("#{Time.now.strftime("%d/%m/%Y")} || || 5 || 15")
     end
   end
 end

@@ -1,6 +1,7 @@
 require_relative 'account'
-class Account_Statement 
+class AccountStatement
   attr_reader :account
+
   def initialize(account = Account.new)
     @account = account
   end
@@ -14,7 +15,7 @@ class Account_Statement
   end
 
   def print_statement
-    p "date || credit || debit || balance"
+    p 'date || credit || debit || balance'
     @account.transactions.each { |transaction| p transaction }
   end
 end
