@@ -8,11 +8,11 @@ describe Account do
   end
 
   it 'initilaze with an empty transaction' do
-    expect(account.transaction).to eq([])
+    expect(account.transactions).to eq([])
   end
 
   describe '.deposit' do
-    it { is_expected.to respond_to(:deposit).with(1).argument }
+    it { is_expected.to respond_to(:deposit).with(2).argument }
 
     it 'changes balance' do
       account.deposit(10)
@@ -21,7 +21,7 @@ describe Account do
   end
 
   describe '.withdraw' do
-    it { is_expected.to respond_to(:withdraw).with(1).argument }
+    it { is_expected.to respond_to(:withdraw).with(2).argument }
 
     it 'changes balance' do
       account.deposit(30)

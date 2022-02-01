@@ -82,4 +82,11 @@ date || credit || debit || balance
 | ----------- | ----------- |----------------|
 | Account     | @balance = 0|      deposit   |
 |             |   @credit   |     withdrawal |
-|             |   @debit    |account_statment|
+|             |   @debit    |                |
+|             |@transactions|                |
+
+
+| Class             | Attributes  |Methods         |
+| ------------------| ------------|----------------|
+| Account_Statement | @account    |print_statement |
+|                   |             |                |
