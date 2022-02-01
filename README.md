@@ -60,18 +60,18 @@ date || credit || debit || balance
 > I would like to to be able to withdraw money
 
 
--[ ]
+-[x]
 > As a client
 > So that I can see a record of my transactions  
 > I would like to print my account statment
 
 
--[ ]
+-[x]
 > As a client
 > So that I can keep track of when a transactions was made
 > I would like to print my account statement with the date of each transaction
 
--[ ]
+-[x]
 > As a client
 > So that I can keep track of exactly which type of transaction was made
 > I would like to print my account statement with the date of each transaction, credit, debit and balance
@@ -90,3 +90,46 @@ date || credit || debit || balance
 | ------------------| ------------|----------------|
 | Account_Statement | @account    |print_statement |
 |                   |             |                |
+
+
+### Update on my work so far
+
+Currently my print statement spec is failing however in irb the code is working.
+
+Please clone repo and bundle install
+
+```
+ > irb
+ >require './lib/account'
+ => true
+ >require './lib/account_statement'
+ => true
+```
+First I create an account and deposit some money
+
+```
+ > account = Account.new
+ => #<Account:0x00007fd338278e00 @balance=0, @transactions=[]>
+ > account.deposit(25)
+ => ["01/02/2022 || 25 || || 25"]
+ > account.deposit(30)
+ => ["01/02/2022 || 25 || || 25", "01/02/2022 || 30 || || 55"]
+```
+Then initialize an account_statement class, passing the account as an argument
+
+```
+ > statement = Account_Statement.new(account)
+ => #<Account_Statement:0x00007fd338211458 @account=#<Account:0x00007fd338278e00 @balance=0, @transactions=[]
+```
+
+Then I print the statement
+
+ ```
+> statement.print_statement
+"date || credit || debit || balance"
+"01/02/2022 || 25 || || 25"
+"01/02/2022 || 30 || || 55"
+ => ["01/02/2022 || 25 || || 25", "01/02/2022 || 30 || || 55"]
+ ```
+
+pointer to rectify my code and spec would be much appreciate.
