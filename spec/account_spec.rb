@@ -7,6 +7,10 @@ describe Account do
     expect(account.balance).to eq(0)
   end
 
+  it 'initilaze with an empty transaction' do
+    expect(account.transaction).to eq([])
+  end
+
   describe '.deposit' do
     it { is_expected.to respond_to(:deposit).with(1).argument }
 

@@ -33,7 +33,7 @@ date || credit || debit || balance
 
 ### User stories
 
-```
+
 -[x]
 > As a Bank
 > So that a client can deposit and withdraw thier own money   
@@ -64,10 +64,22 @@ date || credit || debit || balance
 > As a client
 > So that I can see a record of my transactions  
 > I would like to print my account statment
-```
+
+
+-[ ]
+> As a client
+> So that I can keep track of when a transactions was made
+> I would like to print my account statement with the date of each transaction
+
+-[ ]
+> As a client
+> So that I can keep track of exactly which type of transaction was made
+> I would like to print my account statement with the date of each transaction, credit, debit and balance
+
+
 
 | Class       | Attributes   |Methods        |
 | ----------- | ----------- |----------------|
 | Account     | @balance = 0|      deposit   |
-|             |             |     withdrawal |
-|             |             |account_statment|
+|             |   @credit   |     withdrawal |
+|             |   @debit    |account_statment|
