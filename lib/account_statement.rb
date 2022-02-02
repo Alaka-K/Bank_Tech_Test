@@ -16,6 +16,6 @@ class AccountStatement
 
   def print_statement
     p 'date || credit || debit || balance'
-    @account.transactions.each { |transaction| p transaction }
+    @account.transactions.reverse.each { |transaction| p transaction }
   end
 end
