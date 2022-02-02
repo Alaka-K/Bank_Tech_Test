@@ -4,7 +4,7 @@ class Account
   def initialize
     @balance = 0
     @transactions = []
-    @date = Time.now.strftime('%d/%m/%Y').to_s
+    @date = Time.now.strftime('%d/%m/%Y')
   end
 
   def deposit(cash)
