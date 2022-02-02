@@ -6,7 +6,6 @@ class AccountStatement
     @account = account
   end
 
-
   def print_statement
     puts 'date || credit || debit || balance'
     @account.transactions.reverse.each { |transaction| puts transaction }

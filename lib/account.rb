@@ -12,7 +12,7 @@ class Account
     raise 'Cannot deposit negitave amount' if negitave_amount?(@credit)
 
     @balance += @credit
-    @transactions.push("#{@date} || #{format('%.2f', @credit)} || || #{format('%.2f', @balance)}")
+    @transactions.push("#{@date} || #{format("%.2f", @credit)} || || #{format("%.2f", @balance)}")
   end
 
   def withdraw(cash)
@@ -20,7 +20,7 @@ class Account
     raise 'You have insuffient funds' if insufficient_funds?(@debit)
 
     @balance -= @debit
-    @transactions.push("#{@date} || || #{format('%.2f', @debit)} || #{format('%.2f', @balance)}")
+    @transactions.push("#{@date} || || #{format("%.2f", @debit)} || #{format("%.2f", @balance)}")
   end
 
   private
