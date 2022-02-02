@@ -7,18 +7,6 @@ describe AccountStatement do
     expect(statement.account).not_to be_nil
   end
 
-  it 'shows how much you have deposited' do
-    account = double :account, credit: 5
-    statement = AccountStatement.new(account)
-    expect(statement.credit).to eq(5)
-  end
-
-  it 'shows how much you have withdrawn' do
-    account = double :account, debit: 5
-    statement = AccountStatement.new(account)
-    expect(statement.debit).to eq(5)
-  end
-
   # it 'prints transactions' do
   #   transactions = ["01/02/2022 || 30 || || 30", "01/02/2022 || || 5 || 25"]
   #   account = double :account, transactions: transactions.each{ |transaction| p transaction }

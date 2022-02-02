@@ -6,14 +6,6 @@ class AccountStatement
     @account = account
   end
 
-  def credit
-    @account.credit
-  end
-
-  def debit
-    @account.debit
-  end
-
   def print_statement
     p 'date || credit || debit || balance'
     @account.transactions.reverse.each { |transaction| p transaction }
