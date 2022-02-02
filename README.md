@@ -94,8 +94,6 @@ date || credit || debit || balance
 
 ### Update on my work so far
 
-Currently my print statement spec is failing however in irb the code is working.
-
 Please clone repo and bundle install
 
 ```
@@ -109,27 +107,47 @@ First I create an account and deposit some money
 
 ```
  > account = Account.new
- => #<Account:0x00007fd338278e00 @balance=0, @transactions=[]>
- > account.deposit(25)
- => ["01/02/2022 || 25 || || 25"]
- > account.deposit(30)
- => ["01/02/2022 || 25 || || 25", "01/02/2022 || 30 || || 55"]
+ => #<Account:0x00007fb51728d1a0 @balance=0, @date="02/02/2022", @transactions=[]>
+ > account.deposit(32)
+ => ["02/02/2022 || 32.00 || || 32.00"]
+ > account.deposit(50.25)
+ => ["02/02/2022 || 32.00 || || 32.00", "02/02/2022 || 50.25 || || 82.25"]
 ```
 Then initialize an account_statement class, passing the account as an argument
 
 ```
  > statement = Account_Statement.new(account)
- => #<Account_Statement:0x00007fd338211458 @account=#<Account:0x00007fd338278e00 @balance=0, @transactions=[]
+ => #<AccountStatement:0x00007fb517146918
+...
 ```
 
 Then I print the statement
 
  ```
 > statement.print_statement
-"date || credit || debit || balance"
-"01/02/2022 || 25 || || 25"
-"01/02/2022 || 30 || || 55"
- => ["01/02/2022 || 25 || || 25", "01/02/2022 || 30 || || 55"]
+date || credit || debit || balance
+02/02/2022 || 50.25 || || 82.25
+02/02/2022 || 32.00 || || 32.00
+ => ["02/02/2022 || 50.25 || || 82.25", "02/02/2022 || 32.00 || || 32.00"]
  ```
 
-pointer to rectify my code and spec would be much appreciate.
+I can also withdraw 
+
+```
+>account.withdraw(64)
+=> ["02/02/2022 || 32.00 || || 32.00", "02/02/2022 || 50.25 || || 82.25", "02/02/2022 || || 64.00 || 18.25"]
+> account.withdraw(12.25)
+=> ["02/02/2022 || 32.00 || || 32.00", "02/02/2022 || 50.25 || || 82.25", "02/02/2022 || || 64.00 || 18.25", "02/02/2022 || || 12.25 || 6.00"]
+```
+
+The print statement should update with the most recent transaction at the top
+
+```
+> statement.print_statement
+date || credit || debit || balance
+02/02/2022 || || 12.25 || 6.00
+02/02/2022 || || 64.00 || 18.25
+02/02/2022 || 50.25 || || 82.25
+02/02/2022 || 32.00 || || 32.00
+ => ["02/02/2022 || || 12.25 || 6.00", "02/02/2022 || || 64.00 || 18.25", "02/02/2022 || 50.25 || || 82.25", "02/02/2022 || 32.00 || || 32.00"]
+```
