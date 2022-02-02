@@ -12,7 +12,7 @@ describe Account do
   end
 
   describe '.deposit' do
-    it { is_expected.to respond_to(:deposit).with(2).argument }
+    it { is_expected.to respond_to(:deposit).with(1).argument }
 
     it 'changes balance' do
       account.deposit(10)
@@ -25,7 +25,7 @@ describe Account do
 
     it 'updates transactions' do
       date = Time.now.strftime('%d/%m/%Y')
-      account.deposit(10, date)
+      account.deposit(10)
       expect(account.transactions).to eq(["#{date} || 10.00 || || 10.00"])
     end
 
@@ -36,7 +36,7 @@ describe Account do
   end
 
   describe '.withdraw' do
-    it { is_expected.to respond_to(:withdraw).with(2).argument }
+    it { is_expected.to respond_to(:withdraw).with(1).argument }
 
     it 'changes balance' do
       account.deposit(30)
@@ -50,9 +50,9 @@ describe Account do
 
     it 'updates transactions' do
       date = Time.now.strftime('%d/%m/%Y')
-      account.deposit(20.34, date)
+      account.deposit(20.34)
       expect(account.transactions).to include("#{date} || 20.34 || || 20.34")
-      account.withdraw(10, date)
+      account.withdraw(10)
       expect(account.transactions).to include("#{date} || || 10.00 || 10.34")
     end
 
