@@ -7,12 +7,11 @@ describe AccountStatement do
     expect(statement.account).not_to be_nil
   end
 
-  # it 'prints transactions' do
-  #   transactions = ["01/02/2022 || 30 || || 30", "01/02/2022 || || 5 || 25"]
-  #   account = double :account, transactions: transactions.each{ |transaction| p transaction }
-  #   statement = AccountStatement.new(account)
-  #   expect(statement.print_statement).to include("date || credit || debit || balance")
-  #   expect(statement.print_statement).to include("01/02/2022 || 30 || || 30")
-  #   expect(statement.print_statement).to include("01/02/2022 || || 5 || 25")
-  # end
+  it 'prints transactions in order of most recent transaction' do
+    transactions = ["01/02/2022 || 30 || || 30", "01/02/2022 || || 5 || 25"]
+    account = double :account, transactions: transactions.each{ |transaction| puts transaction }
+    statement = AccountStatement.new(account)
+    
+    expect { statement.print_statement}.to output("date || credit || debit || balance\n01/02/2022 || || 5 || 25\n01/02/2022 || 30 || || 30\n").to_stdout
+  end
 end
